@@ -44,14 +44,64 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item">
-                <a href="{{ route("admin.products.index") }}" class="nav-link {{ request()->is('admin/products') || request()->is('admin/products/*') ? 'active' : '' }}">
-                    <i class="fas fa-cogs nav-icon">
+           
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link  nav-dropdown-toggle">
+                    <i class="fas fa-users nav-icon">
 
                     </i>
-                    {{ trans('global.product.title') }}
+                    {{ trans('global.inventoryManagement.title') }}
                 </a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                      <a href="{{ route("admin.products.index") }}" class="nav-link {{ request()->is('admin/products') || request()->is('admin/products/*') ? 'active' : '' }}">
+                       <i class="fas fa-cogs nav-icon">
+
+                       </i>
+                       {{ trans('global.product.title') }}
+                     </a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a href="{{ route("admin.suppliers.index") }}" class="nav-link {{ request()->is('admin/suppliers') || request()->is('admin/suppliers/*') ? 'active' : '' }}">
+                       <i class="fas fa-cogs nav-icon">
+
+                       </i>
+                       {{ trans('global.supplier.title') }}
+                     </a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a href="{{ route("admin.products.index") }}" class="nav-link {{ request()->is('admin/products') || request()->is('admin/products/*') ? 'active' : '' }}">
+                       <i class="fas fa-cogs nav-icon">
+
+                       </i>
+                       {{ trans('global.purchase.title') }}
+                     </a>
+                    </li>
+                  
+                </ul>
             </li>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link  nav-dropdown-toggle">
+                    <i class="fas fa-users nav-icon">
+
+                    </i>
+                    {{ trans('global.salesManagement.title') }}
+                </a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a href="{{ route("admin.permissions.index") }}" class="nav-link {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
+                            <i class="fas fa-unlock-alt nav-icon">
+
+                            </i>
+                            {{ trans('global.permission.title') }}
+                        </a>
+                    </li>
+                  
+                </ul>
+            </li>
+            
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="nav-icon fas fa-sign-out-alt">

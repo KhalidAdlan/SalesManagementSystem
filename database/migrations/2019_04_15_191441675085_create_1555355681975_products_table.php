@@ -12,6 +12,9 @@ class Create1555355681975ProductsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->longText('description')->nullable();
+            $table->integer('qty');
+            $table->integer('min_qty');
+            $table->integer('image');
             $table->decimal('price', 15, 2)->nullable();
             $table->timestamps();
             $table->softDeletes();

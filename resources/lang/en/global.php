@@ -147,7 +147,7 @@ return [
     'time_entries'                         => 'Time entries',
     'work_type'                            => 'Work type',
     'work_types'                           => 'Work types',
-    'project'                              => 'Project',
+    'project'                              => 'Sales MS',
     'start_time'                           => 'Start time',
     'end_time'                             => 'End time',
     'expense_category'                     => 'Expense Category',
@@ -311,10 +311,20 @@ return [
     'deselect_all'                         => 'Deselect all',
     'team-management'                      => 'Teams',
     'team-management-singular'             => 'Team',
-    'site_title'                           => 'Laravel + CoreUI',
+    'site_title'                           => 'Sales Management System',
     'userManagement'                       => [
         'title'          => 'User Management',
         'title_singular' => 'User Management',
+        'fields'         => [],
+    ],
+    'inventoryManagement'                       => [
+        'title'          => 'Inventory Management',
+        'title_singular' => 'Inventory Management',
+        'fields'         => [],
+    ],
+    'salesManagement'                       => [
+        'title'          => 'Sales Management',
+        'title_singular' => 'Sales Management',
         'fields'         => [],
     ],
     'permission'                           => [
@@ -333,12 +343,43 @@ return [
             'deleted_at_helper' => '',
         ],
     ],
+    'supplier' =>[
+        'title' => 'Suppliers',
+        'title_singular' => 'Supplier',
+        'fields'         => [
+            'id'                 => 'ID',
+            'name'               => 'Name',
+            'name_helper'        => '',
+            'description_helper'        => '',
+
+            'email'              => 'Email',
+            'tel_1'              => 'Telephone #1',
+            'tel_2'              => 'Telephone #2',
+            'address_line_1'     => 'Address Line #1',
+            'address_line_2'     => 'Address Line #2',
+            'description'        => 'Description',
+            'website'            => 'Website',
+            'created_at'         => 'Created At',
+            'created_at_helper'  => '',
+            'updated_at'         => 'Updated At',
+            'updated_at_helper'  => '',
+            'deleted_at'         => 'Deleted at',
+            'deleted_at_helper'  => '',
+        ]
+    ],
+    'purchase' =>[
+        'title' => 'Purchases',
+        'title_singular' => 'Purchase'
+    ],
     'product'                              => [
         'title'          => 'Products',
         'title_singular' => 'Product',
         'fields'         => [
             'id'                 => 'ID',
             'id_helper'          => '',
+            'qty'                => 'Quantity',
+            'min_qty'            => 'Minimum Quantity',
+            'image'              => 'Product Picture',
             'name'               => 'Name',
             'name_helper'        => '',
             'description'        => 'Description',
