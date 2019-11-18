@@ -25,6 +25,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     Route::resource('products', 'ProductsController');
 
+    Route::post('products/upload', 'ProductsController@upload')->name('products.upload');
+
     Route::delete('suppliers/destroy', 'SuppliersController@massDestroy')->name('suppliers.massDestroy');
 
     Route::resource('suppliers', 'SuppliersController');

@@ -1,13 +1,13 @@
 @extends('layouts.admin')
 @section('content')
 @can('product_create')
-    <div style="margin-bottom: 10px;" class="row">
-        <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route("admin.products.create") }}">
-                {{ trans('global.add') }} {{ trans('global.product.title_singular') }}
-            </a>
-        </div>
+<div style="margin-bottom: 10px;" class="row">
+    <div class="col-lg-12">
+        <a class="btn btn-success" href="{{ route("admin.products.create") }}">
+            {{ trans('global.add') }} {{ trans('global.product.title_singular') }}
+        </a>
     </div>
+</div>
 @endcan
 <div class="card">
     <div class="card-header">
@@ -32,46 +32,72 @@
                             {{ trans('global.product.fields.price') }}
                         </th>
                         <th>
+                            {{ trans('global.product.fields.qty') }}
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($products as $key => $product)
-                        <tr data-entry-id="{{ $product->id }}">
-                            <td>
+                    <tr data-entry-id="{{ $product->id }}">
+                        <td>
 
-                            </td>
-                            <td>
-                                {{ $product->name ?? '' }}
-                            </td>
-                            <td>
-                                {{ $product->description ?? '' }}
-                            </td>
-                            <td>
-                                {{ $product->price ?? '' }}
-                            </td>
-                            <td>
-                                @can('product_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.products.show', $product->id) }}">
-                                        {{ trans('global.view') }}
-                                    </a>
-                                @endcan
-                                @can('product_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.products.edit', $product->id) }}">
-                                        {{ trans('global.edit') }}
-                                    </a>
-                                @endcan
-                                @can('product_delete')
-                                    <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
-                                    </form>
-                                @endcan
-                            </td>
+                        </td>
+                        <td>
+                            @if($product->image != null)
+                            <a href="#p{{$product->id}}" class="" data-toggle="modal">
+                                <img src="{{$product->image}}" width="80px">
+                            </a>
+                            @endif
+                            {{ $product->name ?? '' }}
+                            <div class="modal fade bd-example-modal-lg show" id="p{{$product->id}}" role="dialog">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="" class="close" data-dismiss="modal">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body" id="dynamic-content">
+                                            <img src="{{$product->image}}" class="img-fluid" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                        </tr>
+                        </td>
+                        <td>
+                            {{ $product->description ?? '' }}
+                        </td>
+                        <td>
+                            {{ $product->price ?? '' }}
+                        </td>
+                        <td>
+                            {{ $product->qty ?? '' }}
+                        </td>
+                        <td>
+                            @can('product_show')
+                            <a class="btn btn-xs btn-primary" href="{{ route('admin.products.show', $product->id) }}">
+                                {{ trans('global.view') }}
+                            </a>
+                            @endcan
+                            @can('product_edit')
+                            <a class="btn btn-xs btn-info" href="{{ route('admin.products.edit', $product->id) }}">
+                                {{ trans('global.edit') }}
+                            </a>
+                            @endcan
+                            @can('product_delete')
+                            <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
+                            </form>
+                            @endcan
+                        </td>
+
+                    </tr>
                     @endforeach
                 </tbody>
             </table>
@@ -81,41 +107,52 @@
 @section('scripts')
 @parent
 <script>
-    $(function () {
-  let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
-  let deleteButton = {
-    text: deleteButtonTrans,
-    url: "{{ route('admin.products.massDestroy') }}",
-    className: 'btn-danger',
-    action: function (e, dt, node, config) {
-      var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
-          return $(entry).data('entry-id')
-      });
+    $(function() {
+        let deleteButtonTrans = '{{ trans('global.datatables.delete ') }}'
+        let deleteButton = {
+            text: deleteButtonTrans,
+            url: "{{ route('admin.products.massDestroy') }}",
+            className: 'btn-danger',
+            action: function(e, dt, node, config) {
+                var ids = $.map(dt.rows({
+                    selected: true
+                }).nodes(), function(entry) {
+                    return $(entry).data('entry-id')
+                });
 
-      if (ids.length === 0) {
-        alert('{{ trans('global.datatables.zero_selected') }}')
+                if (ids.length === 0) {
+                    alert('{{ trans('global.datatables.zero_selected') }}')
 
-        return
-      }
+                    return
+                }
 
-      if (confirm('{{ trans('global.areYouSure') }}')) {
-        $.ajax({
-          headers: {'x-csrf-token': _token},
-          method: 'POST',
-          url: config.url,
-          data: { ids: ids, _method: 'DELETE' }})
-          .done(function () { location.reload() })
-      }
-    }
-  }
-  let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('product_delete')
-  dtButtons.push(deleteButton)
-@endcan
+                if (confirm('{{ trans('global.areYouSure ') }}')) {
+                    $.ajax({
+                            headers: {
+                                'x-csrf-token': _token
+                            },
+                            method: 'POST',
+                            url: config.url,
+                            data: {
+                                ids: ids,
+                                _method: 'DELETE'
+                            }
+                        })
+                        .done(function() {
+                            location.reload()
+                        })
+                }
+            }
+        }
+        let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
+        @can('product_delete')
+        dtButtons.push(deleteButton)
+        @endcan
 
-  $('.datatable:not(.ajaxTable)').DataTable({ buttons: dtButtons })
-})
-
+        $('.datatable:not(.ajaxTable)').DataTable({
+            buttons: dtButtons
+        })
+    })
 </script>
 @endsection
 @endsection

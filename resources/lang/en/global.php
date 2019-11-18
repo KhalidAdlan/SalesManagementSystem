@@ -376,6 +376,8 @@ return [
         'title_singular' => 'Product',
         'fields'         => [
             'id'                 => 'ID',
+            'cost_price'         => 'Cost Price',
+        
             'id_helper'          => '',
             'qty'                => 'Quantity',
             'min_qty'            => 'Minimum Quantity',
