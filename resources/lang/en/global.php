@@ -45,6 +45,7 @@ return [
     'logout'                               => 'Logout',
     'calendar'                             => 'Calendar',
     'dashboard'                            => 'Dashboard',
+    'tree'                                 => 'Tree View',
     'datatables'                           => [
         'copy'          => 'Copy',
         'csv'           => 'CSV',
@@ -395,5 +396,27 @@ return [
             'deleted_at'         => 'Deleted at',
             'deleted_at_helper'  => '',
         ],
+
     ],
+
+    'section'                              => [
+        'title'          => 'Sections',
+        'title_singular' => 'Section',
+        'fields'         => [
+            'id'                 => 'ID',
+            'parent'             => 'Parent Section',
+            'name'               => 'Name',
+            'name_helper'        => '',
+            'description'        => 'Description',
+            'description_helper' => '',
+            'price'              => 'Price',
+            'price_helper'       => '',
+            'created_at'         => 'Created At',
+            'created_at_helper'  => '',
+            'updated_at'         => 'Updated At',
+            'updated_at_helper'  => '',
+            'deleted_at'         => 'Deleted at',
+            'deleted_at_helper'  => '',
+        ]]
+    
 ];

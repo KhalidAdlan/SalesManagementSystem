@@ -108,7 +108,7 @@
 @parent
 <script>
     $(function() {
-        let deleteButtonTrans = '{{ trans('global.datatables.delete ') }}'
+        let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
         let deleteButton = {
             text: deleteButtonTrans,
             url: "{{ route('admin.products.massDestroy') }}",

@@ -20,10 +20,17 @@ class Product extends Model
         'price',
         'qty',
         'min_qty',
+        'section_id',
         'image',
         'created_at',
         'updated_at',
         'deleted_at',
         'description',
     ];
+
+
+    public function section()
+    {
+        return belongsTo('App\Section');
+    }
 }

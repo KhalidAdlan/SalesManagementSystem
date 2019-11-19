@@ -10,6 +10,8 @@ use App\Product;
 use App\Supplier;
 use App\Purchase;
 use Illuminate\Http\Request;
+use App\Section;
+
 use Validator;
 
 
@@ -29,8 +31,9 @@ class ProductsController extends Controller
     
         abort_unless(\Gate::allows('product_create'), 403);
         $suppliers = Supplier::all();
+        $sections = Section::all();
 
-        return view('admin.products.create', compact('suppliers'));
+        return view('admin.products.create', ['suppliers' => $suppliers, 'sections' => $sections]);
     }
 
     public function upload(Request $request)
@@ -69,6 +72,7 @@ class ProductsController extends Controller
                 'qty' => $request->all()['qty'],
                 'min_qty' => $request->all()['min_qty'],
                 'price' => $request->all()['price'],
+                'section_id' => $request->all()['section_id'],
                 'image' => $output,
      
             ];
@@ -85,6 +89,7 @@ class ProductsController extends Controller
                 'description' => $request->all()['description'],
                 'qty' => $request->all()['qty'],
                 'min_qty' => $request->all()['min_qty'],
+                'section_id' => $request->all()['section_id'],
                 'price' => $request->all()['price'],
                 'image' => null,
      

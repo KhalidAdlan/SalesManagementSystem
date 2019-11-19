@@ -83,6 +83,19 @@
                     {{ trans('global.product.fields.price_helper') }}
                 </p>
             </div>
+            <div class="form-group {{ $errors->has('parent_id') ? 'has-error' : '' }}">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+               <label class="input-group-text" for="inputGroupSelect01">{{ trans('global.section.title_singular')}}</label>
+              </div>
+                <select class="custom-select" name="parent_id" id="inputGroupSelect01">
+                   <option selected value="-1">Choose...</option>
+                   @foreach ($sections as $section)
+                   <option value="{{$section->id}}">{{$section->name}}</option>
+                   @endforeach
+                </select>
+               </div>
+            </div>
             <div class="form-group {{ $errors->has('image') ? 'has-error' : '' }}">
                 <label for="file">{{ trans('global.product.fields.image') }}
                 @if($errors->has('cover_path'))
