@@ -72,10 +72,10 @@
                             {{ $product->description ?? '' }}
                         </td>
                         <td>
-                            {{ $product->price ?? '' }}
+                            {{ $product->price ?? '' }} SDG
                         </td>
                         <td>
-                            {{ $product->qty ?? '' }}
+                            {{ $product->qty ?? '' }} Pieces
                         </td>
                         <td>
                             @can('product_show')

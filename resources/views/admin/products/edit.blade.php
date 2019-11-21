@@ -46,6 +46,31 @@
                     {{ trans('global.product.fields.price_helper') }}
                 </p>
             </div>
+            <div class="form-group {{ $errors->has('qty') ? 'has-error' : '' }}">
+                <label for="qty">{{ trans('global.product.fields.qty') }}</label>
+                <input type="number" id="qty" name="qty" class="form-control" value="{{ old('qty', isset($product) ? $product->qty : '') }}" step="1">
+                @if($errors->has('qty'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('qty') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('global.product.fields.price_helper') }}
+                </p>
+            </div>
+
+            <div class="form-group {{ $errors->has('min_qty') ? 'has-error' : '' }}">
+                <label for="min_qty">{{ trans('global.product.fields.min_qty') }}</label>
+                <input type="number" id="min_qty" name="min_qty" class="form-control" value="{{ old('min_qty', isset($product) ? $product->min_qty : '') }}" step="1">
+                @if($errors->has('min_qty'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('min_qty') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('global.product.fields.price_helper') }}
+                </p>
+            </div>
             <div>
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
             </div>
