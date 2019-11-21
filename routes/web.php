@@ -35,6 +35,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     Route::resource('sections', 'SectionsController');
 
+    Route::delete('salesPersons/destroy', 'SalesPersonsController@massDestroy')->name('salesPersons.massDestroy');
+
+    Route::resource('salesPersons', 'SalesPersonsController');
+
+    Route::delete('customers/destroy', 'CustomersPersonsController@massDestroy')->name('customers.massDestroy');
+
+    Route::resource('customers', 'CustomersController');
+
+
+
+
 
     Route::get('/inventory', 'HomeController@inventory')->name('dashboards.inventory');
 });

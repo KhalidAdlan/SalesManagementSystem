@@ -88,7 +88,7 @@
               <div class="input-group-prepend">
                <label class="input-group-text" for="inputGroupSelect01">{{ trans('global.section.title_singular')}}</label>
               </div>
-                <select class="custom-select" name="parent_id" id="inputGroupSelect01">
+                <select class="custom-select" name="section_id" id="inputGroupSelect01">
                    <option selected value="-1">Choose...</option>
                    @foreach ($sections as $section)
                    <option value="{{$section->id}}">{{$section->name}}</option>

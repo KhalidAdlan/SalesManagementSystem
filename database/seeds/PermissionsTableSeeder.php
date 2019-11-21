@@ -193,6 +193,67 @@ class PermissionsTableSeeder extends Seeder
                 'created_at' => '2019-04-15 19:14:42',
                 'updated_at' => '2019-04-15 19:14:42',
             ],
+            [
+                'id'         => '32',
+                'title'      => 'sales_person_create',
+                'created_at' => '2019-04-15 19:14:42',
+                'updated_at' => '2019-04-15 19:14:42',
+            ],
+            [
+                'id'         => '33',
+                'title'      => 'sales_person_edit',
+                'created_at' => '2019-04-15 19:14:42',
+                'updated_at' => '2019-04-15 19:14:42',
+            ],
+            [
+                'id'         => '34',
+                'title'      => 'sales_person_show',
+                'created_at' => '2019-04-15 19:14:42',
+                'updated_at' => '2019-04-15 19:14:42',
+            ],
+            [
+                'id'         => '35',
+                'title'      => 'sales_person_delete',
+                'created_at' => '2019-04-15 19:14:42',
+                'updated_at' => '2019-04-15 19:14:42',
+            ],
+            [
+                'id'         => '36',
+                'title'      => 'sales_person_access',
+                'created_at' => '2019-04-15 19:14:42',
+                'updated_at' => '2019-04-15 19:14:42',
+            ],
+
+            [
+                'id'         => '37',
+                'title'      => 'customer_create',
+                'created_at' => '2019-04-15 19:14:42',
+                'updated_at' => '2019-04-15 19:14:42',
+            ],
+            [
+                'id'         => '38',
+                'title'      => 'customer_edit',
+                'created_at' => '2019-04-15 19:14:42',
+                'updated_at' => '2019-04-15 19:14:42',
+            ],
+            [
+                'id'         => '39',
+                'title'      => 'customer_show',
+                'created_at' => '2019-04-15 19:14:42',
+                'updated_at' => '2019-04-15 19:14:42',
+            ],
+            [
+                'id'         => '40',
+                'title'      => 'customer_delete',
+                'created_at' => '2019-04-15 19:14:42',
+                'updated_at' => '2019-04-15 19:14:42',
+            ],
+            [
+                'id'         => '41',
+                'title'      => 'customer_access',
+                'created_at' => '2019-04-15 19:14:42',
+                'updated_at' => '2019-04-15 19:14:42',
+            ],
         ];
 
         Permission::insert($permissions);

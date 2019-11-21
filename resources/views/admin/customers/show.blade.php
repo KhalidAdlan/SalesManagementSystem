@@ -3,7 +3,7 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.show') }} {{ trans('global.section.title_singular') }}
+        {{ trans('global.show') }} {{ trans('global.customer.title_singular') }}
     </div>
 
     <div class="card-body">
@@ -11,36 +11,42 @@
             <tbody>
                 <tr>
                     <th>
-                        {{ trans('global.section.fields.name') }}
+                        {{ trans('global.customer.fields.name') }}
                     </th>
                     <td>
-                        {{ $section->name }}
+                        {{ $customer->name }}
                     </td>
                 </tr>
                 <tr>
                     <th>
-                        {{ trans('global.section.fields.parent') }}
+                        {{ trans('global.customer.fields.description') }}
                     </th>
                     <td>
-                        @if($section->hasParent())
-                          {!! $section->parent()->name !!}
-                        @endif
+                        {!! $customer->description !!}
                     </td>
                 </tr>
                 <tr>
                     <th>
-                        {{ trans('global.section.fields.childrenNum') }}
+                        {{ trans('global.customer.fields.phone') }}
                     </th>
                     <td>
-                         {{ $section->children()->count() }}
+                         {{ $customer->phone }}
                     </td>
                 </tr>
                 <tr>
                     <th>
-                        {{ trans('global.section.fields.productsNum') }}
+                        {{ trans('global.customer.fields.address') }}
                     </th>
                     <td>
-                         {{ $section->products()->count() }}
+                         {{ $customer->address }}
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        {{ trans('global.customer.fields.location') }}
+                    </th>
+                    <td>
+                        
                     </td>
                 </tr>
                

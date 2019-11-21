@@ -406,6 +406,8 @@ return [
             'id'                 => 'ID',
             'parent'             => 'Parent Section',
             'name'               => 'Name',
+            'childrenNum'        => 'Number of Sub-sections',
+            'productsNum'        => 'Total Number of Products',
             'name_helper'        => '',
             'description'        => 'Description',
             'description_helper' => '',
@@ -417,6 +419,49 @@ return [
             'updated_at_helper'  => '',
             'deleted_at'         => 'Deleted at',
             'deleted_at_helper'  => '',
-        ]]
+        ]],
+
+        'salesPerson'                              => [
+            'title'          => 'Sales Persons',
+            'title_singular' => 'Sales Person',
+            'fields'         => [
+                'id'                 => 'ID',
+                'fullName'             => 'Full Name',
+                'userName'               => 'Username',
+                'area'        => 'Area of Work',
+                'target'        => 'Target',
+                'salary'        => 'Salary',
+                'commission_not_reached'        => 'Commission if Target Not Reached',
+                'commission_reached'        => 'Commission if Target Reached',
+                'commission_exceeded'        => 'Commission if Target Exceeded',
+                'price_helper'       => '',
+                'created_at'         => 'Created At',
+                'created_at_helper'  => '',
+                'updated_at'         => 'Updated At',
+                'updated_at_helper'  => '',
+                'deleted_at'         => 'Deleted at',
+                'deleted_at_helper'  => '',
+            ]],
+
+
+            'customer'                              => [
+                'title'          => 'Customers',
+                'title_singular' => 'Customer',
+                'fields'         => [
+                    'id'                 => 'ID',
+                    'name'               => 'Name',
+                    'phone'              => 'phone',
+                    'area'               => 'Area',
+                    'description'        => 'Description',
+                    'location'           => 'Location',
+                    'address'            => 'Address',
+                    'name_helper'        => '',
+                    'created_at'         => 'Created At',
+                    'created_at_helper'  => '',
+                    'updated_at'         => 'Updated At',
+                    'updated_at_helper'  => '',
+                    'deleted_at'         => 'Deleted at',
+                    'deleted_at_helper'  => '',
+                ]]
     
 ];

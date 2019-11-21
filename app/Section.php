@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Section extends Model
 {
+    use SoftDeletes;
+
     protected $dates = [
         'created_at',
         'updated_at',
@@ -79,7 +82,15 @@ class Section extends Model
     }
 
     public function products(){
-        return $this->hasMany('App\Product');
+        $products = $this->hasMany('App\Product');
+         
+        foreach($this->children as $child)
+        {
+            $products = $products->merge($child->products());
+        }
+
+        return $products;
+    
     }
 
     public function children()

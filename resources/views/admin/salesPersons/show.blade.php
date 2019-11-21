@@ -3,7 +3,7 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.show') }} {{ trans('global.section.title_singular') }}
+        {{ trans('global.show') }} {{ trans('global.salesPerson.title') }}
     </div>
 
     <div class="card-body">
@@ -11,39 +11,39 @@
             <tbody>
                 <tr>
                     <th>
-                        {{ trans('global.section.fields.name') }}
+                        {{ trans('global.salesPerson.fields.fullName') }}
                     </th>
                     <td>
-                        {{ $section->name }}
+                        {{ $salesPerson->fullName }}
                     </td>
                 </tr>
                 <tr>
                     <th>
-                        {{ trans('global.section.fields.parent') }}
+                        {{ trans('global.salesPerson.fields.userName') }}
                     </th>
                     <td>
-                        @if($section->hasParent())
-                          {!! $section->parent()->name !!}
-                        @endif
+                        {{ $salesPerson->userName }}
                     </td>
                 </tr>
                 <tr>
                     <th>
-                        {{ trans('global.section.fields.childrenNum') }}
+                        {{ trans('global.salesPerson.fields.area') }}
                     </th>
                     <td>
-                         {{ $section->children()->count() }}
+                        @foreach( $salesPerson->area() as $area)
+                         <span class="abel label-info label-many"> {{ $area }}</span>
+                        @endforeach
                     </td>
                 </tr>
                 <tr>
                     <th>
-                        {{ trans('global.section.fields.productsNum') }}
+                    {{ trans('global.salesPerson.fields.target') }}
+
                     </th>
                     <td>
-                         {{ $section->products()->count() }}
+                       {{ $salesPerson->target}}
                     </td>
                 </tr>
-               
             </tbody>
         </table>
     </div>

@@ -15,35 +15,29 @@
                     <i class="fas fa-users nav-icon">
 
                     </i>
-                    {{ trans('global.userManagement.title') }}
+                    {{ trans('global.salesManagement.title') }}
                 </a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a href="{{ route("admin.permissions.index") }}" class="nav-link {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
+                        <a href="{{ route("admin.salesPersons.index") }}" class="nav-link {{ request()->is('admin/salesPerson') || request()->is('admin/salesPerson/*') ? 'active' : '' }}">
                             <i class="fas fa-unlock-alt nav-icon">
 
                             </i>
-                            {{ trans('global.permission.title') }}
+                            {{ trans('global.salesPerson.title') }}
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route("admin.roles.index") }}" class="nav-link {{ request()->is('admin/roles') || request()->is('admin/roles/*') ? 'active' : '' }}">
-                            <i class="fas fa-briefcase nav-icon">
+                        <a href="{{ route("admin.customers.index") }}" class="nav-link {{ request()->is('admin/customer') || request()->is('admin/customer/*') ? 'active' : '' }}">
+                            <i class="fas fa-unlock-alt nav-icon">
 
                             </i>
-                            {{ trans('global.role.title') }}
+                            {{ trans('global.customer.title') }}
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="{{ route("admin.users.index") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
-                            <i class="fas fa-user nav-icon">
 
-                            </i>
-                            {{ trans('global.user.title') }}
-                        </a>
-                    </li>
                 </ul>
             </li>
+            
 
             <li class="nav-item nav-dropdown">
                 <a class="nav-link  n" href="{{route('admin.dashboards.inventory')}}">
@@ -100,7 +94,7 @@
                     <i class="fas fa-users nav-icon">
 
                     </i>
-                    {{ trans('global.salesManagement.title') }}
+                    {{ trans('global.userManagement.title') }}
                 </a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
@@ -111,9 +105,25 @@
                             {{ trans('global.permission.title') }}
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route("admin.roles.index") }}" class="nav-link {{ request()->is('admin/roles') || request()->is('admin/roles/*') ? 'active' : '' }}">
+                            <i class="fas fa-briefcase nav-icon">
 
+                            </i>
+                            {{ trans('global.role.title') }}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route("admin.users.index") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
+                            <i class="fas fa-user nav-icon">
+
+                            </i>
+                            {{ trans('global.user.title') }}
+                        </a>
+                    </li>
                 </ul>
             </li>
+            
 
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
