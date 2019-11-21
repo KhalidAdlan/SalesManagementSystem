@@ -38,7 +38,9 @@ class SectionsController extends Controller
     {
         abort_unless(\Gate::allows('section_edit'), 403);
 
-        return view('admin.sections.edit', compact('section'));
+        $sections = Section::all();
+
+        return view('admin.sections.edit', compact('sections', 'section'));
     }
     public function update(UpdatesectionRequest $request, Section $section)
     {

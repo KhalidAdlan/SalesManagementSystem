@@ -29,20 +29,22 @@
                 </tr>
                 <tr>
                     <th>
+                        {{ trans('global.section.fields.description') }}
+                    </th>
+                    <td>
+                          {!! $section->description !!}
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <th>
                         {{ trans('global.section.fields.childrenNum') }}
                     </th>
                     <td>
                          {{ $section->children()->count() }}
                     </td>
                 </tr>
-                <tr>
-                    <th>
-                        {{ trans('global.section.fields.productsNum') }}
-                    </th>
-                    <td>
-                         {{ $section->products()->count() }}
-                    </td>
-                </tr>
+                
                
             </tbody>
         </table>
