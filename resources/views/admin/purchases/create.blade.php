@@ -104,7 +104,7 @@
       let new_row_number = row_number - 1;
       $('#product' + row_number).html($('#product' + new_row_number).html()).find('td:first-child');
       $('#products_table').append('');
-      $("#products_table tr").each(function () {
+    /*  $("#products_table tr").each(function () {
 $('td', this).each(function () {
     var p = $(this).find("input.price").val();
     var q = $(this).find("input.qty").val();
@@ -125,7 +125,7 @@ $('td', this).each(function () {
 
 })
 console.log(total);
-      
+   */   
       row_number++;
     });
 
