@@ -71,6 +71,27 @@
                     {{ trans('global.product.fields.price_helper') }}
                 </p>
             </div>
+            <label>{{ trans('global.product.fields.image') }}</label><br>
+            <div class="card card-body col-md-2">
+            <a href="#p{{$product->id}}" class="" data-toggle="modal">
+                                <img src="{{$product->image}}" width="80px">
+                            </a>
+           </div>
+            <div class="modal fade bd-example-modal-lg show" id="p{{$product->id}}" role="dialog">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="" class="close" data-dismiss="modal">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body" id="dynamic-content">
+                                            <img src="{{$product->image}}" class="img-fluid" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
             <div>
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
             </div>

@@ -157,6 +157,42 @@ class ProductsController extends Controller
     {
         abort_unless(\Gate::allows('product_edit'), 403);
 
+        try{
+            $output = $this->upload($request);
+            //dd($output);
+            $newProduct = [
+                'name' => $request->all()['name'],
+                'description' => $request->all()['description'],
+                'qty' => $request->all()['qty'],
+                'min_qty' => $request->all()['min_qty'],
+                'price' => $request->all()['price'],
+                'section_id' => $request->all()['section_id'],
+                'image' => $output,
+     
+            ];
+
+            $product = Product::update($newProduct);
+
+        }
+        catch(\Exception $e)
+        {
+            //dd($e);
+
+            $newProduct = [
+                'name' => $request->all()['name'],
+                'description' => $request->all()['description'],
+                'qty' => $request->all()['qty'],
+                'min_qty' => $request->all()['min_qty'],
+                'section_id' => $request->all()['section_id'],
+                'price' => $request->all()['price'],
+                'image' => null,
+     
+            ];
+           
+            $product = Product::update($newProduct);
+
+        }
+
         $product->update($request->all());
 
         return redirect()->route('admin.products.index');

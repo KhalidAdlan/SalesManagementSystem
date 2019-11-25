@@ -66,7 +66,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route("admin.products.index") }}" class="nav-link {{ request()->is('admin/products') || request()->is('admin/products/*') ? 'active' : '' }}">
+                        <a href="{{ route("admin.purchases.index") }}" class="nav-link {{ request()->is('admin/purchases') || request()->is('admin/purchases/*') ? 'active' : '' }}">
                             <i class="fas fa-cogs nav-icon">
 
                             </i>

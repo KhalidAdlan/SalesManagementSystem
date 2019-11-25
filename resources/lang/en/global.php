@@ -370,7 +370,17 @@ return [
     ],
     'purchase' =>[
         'title' => 'Purchases',
-        'title_singular' => 'Purchase'
+        'title_singular' => 'Purchase',
+        'fields'         =>  [
+            'invoice_id'         => 'Invoice Number',
+            'total'              => 'Total',
+            'created_at'         => 'Created At',
+            'created_at_helper'  => '',
+            'updated_at'         => 'Updated At',
+            'updated_at_helper'  => '',
+            'deleted_at'         => 'Deleted at',
+            'deleted_at_helper'  => '',
+        ]
     ],
     'product'                              => [
         'title'          => 'Products',
@@ -378,7 +388,6 @@ return [
         'fields'         => [
             'id'                 => 'ID',
             'cost_price'         => 'Cost Price',
-        
             'id_helper'          => '',
             'qty'                => 'Quantity',
             'min_qty'            => 'Minimum Quantity',
