@@ -47,8 +47,17 @@ class SalesPersonsController extends Controller
             "commissionTargetExceeded" => $request->all()['commissionTargetExceeded']
         ];
         $salesPerson = SalesPerson::create($newSalesPerson);
+       
+        // $appUser = [
+        //         "username"        => $salesPerson->userName,
+       //          "password"        => bcrypt($salesPerson->userName . $salesPerson->id),
+       //          "sales_person_id" => $salesPerson->id,
+       //          "type"            => "SalesPerson"
+       //              ];
+      //  AppUser::create($appUser); 
 
-        $salesPersons = SalesPerson::all();
+
+       $salesPersons = SalesPerson::all();
 
 
         return redirect()->route('admin.salesPersons.index', compact('salesPersons'));
