@@ -10,12 +10,13 @@ Route::group(['prefix' => 'v1', 'as' => 'admin.', 'namespace' => 'Api\V1\Admin']
     Route::apiResource('products', 'ProductsApiController');
 });
 
-Route::post('login', 'Api\RegisterController@login');
-Route::post('register', 'Api\RegisterController@register');
+Route::post('login', 'Api\AppUsersController@login');
+Route::post('register', 'Api\AppUsersController@register');
 
 Route::group(['middleware' => 'auth:api'], function()
 {
-   Route::post('details', 'Api\RegisterController@details');
+   Route::post('details', 'Api\AppUsersController@details');
+   Route::get('customers', 'Api\AppUsersController@details');
 });
 
 // Route::group([
