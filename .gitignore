@@ -1,4 +1,3 @@
-/config/database.php
 /node_modules
 /public/hot
 /public/storage
@@ -8,7 +7,9 @@
 /.vscode
 /nbproject
 /.vagrant
+/config/database.php
 .env
+.env.example
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
