@@ -39,7 +39,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     Route::resource('salesPersons', 'SalesPersonsController');
 
-    Route::delete('customers/destroy', 'CustomersPersonsController@massDestroy')->name('customers.massDestroy');
+    // Route::delete('customers/destroy', 'CustomersPersonsController@massDestroy')->name('customers.massDestroy');
 
     Route::resource('customers', 'CustomersController');
   

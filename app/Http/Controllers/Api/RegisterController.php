@@ -59,6 +59,6 @@ class RegisterController extends BaseController
     public function details() 
     {
         $user = Auth::user();
-        return response()->json(['success' => $user], $this-> successStatus); 
+        return response()->json(['success' => $user], $this->successStatus); 
     }
 }

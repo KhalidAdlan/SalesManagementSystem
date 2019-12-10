@@ -16,7 +16,7 @@ Route::post('register', 'Api\AppUsersController@register');
 Route::group(['middleware' => 'auth:api'], function()
 {
    Route::post('details', 'Api\AppUsersController@details');
-   Route::get('customers', 'Api\AppUsersController@details');
+   Route::apiResource('customers', 'Api\CustomersController');
 });
 
 // Route::group([
