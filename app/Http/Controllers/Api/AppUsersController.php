@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request; 
 use App\Http\Controllers\Controller; 
-use App\User; 
+use App\AppUser; 
 use Illuminate\Support\Facades\Auth; 
 use Validator;
 
@@ -34,9 +34,9 @@ class AppUsersController extends Controller
         if ($validator->fails()) { 
             return response()->json(['error'=>$validator->errors()], 401);            
         }
-    $input = $request->all(); 
+        $input = $request->all(); 
         $input['password'] = bcrypt($input['password']); 
-        $user = User::create($input); 
+        $user = AppUser::create($input); 
         $success['token'] =  $user->createToken('MyApp')->accessToken; 
         $success['name'] =  $user->name;
         return response()->json(['success'=>$success], $this->successStatus); 
@@ -45,6 +45,6 @@ class AppUsersController extends Controller
     public function details() 
     {
         $user = Auth::user();
-        return response()->json(['success' => $user], $this-> successStatus); 
+        return response()->json(['success' => $user], $this->successStatus); 
     } 
 }
