@@ -68,7 +68,7 @@
       "Illuminate\\Foundation\\ComposerScripts::postInstall",
       "php artisan migrate:fresh --force",
       "php artisan db:seed --force",
-      "chmod -R 777 storage", 
+      "chmod -R 777 storage" 
     ]
     }
 }
