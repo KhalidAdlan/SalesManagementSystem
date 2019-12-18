@@ -11,7 +11,7 @@ class AppUsersTableSeeder extends Seeder
             'id'             => 1,
             'name'           => 'appUser',
             'email'          => 'user@User.com',
-            'password'       => '$2y$10$imU.Hdz7VauIT3LIMCMbsOXvaaTQg6luVqkhfkBcsUd.SJW2XSRKO',
+            'password'       => 'password',
             'remember_token' => null,
             'api_token' => null,
             'created_at'     => '2019-04-15 19:13:32',
